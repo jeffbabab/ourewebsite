@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelope Opening</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8c8d1, #fbd9d9); /* Soft baby pink gradient */
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            height: 250px;
+            width: 350px;
+            background-color: #f8b0c5; /* Baby pink for the envelope */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+        }
+
+        .wrapper span {
+            position: absolute;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            opacity: 1;
+            z-index: 4;
+            cursor: pointer;
+        }
+
+        .lid {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-right: 150px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-left: 150px solid transparent;
+            transform-origin: top;
+            transition: transform 0.25s linear;
+        }
+
+        /* Lid when closed */
+        .lid.one {
+            border-top: 100px solid #f8b0c5;
+            transform: rotateX(0deg);
+            z-index: 3;
+            transition-delay: 0.75s;
+        }
+
+        /* Lid when opened */
+        .lid.two {
+            border-top: 100px solid #f8c8d1;
+            transform: rotateX(90deg);
+            z-index: 1;
+            transition-delay: 0.5s;
+        }
+
+        .envelope {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-top: 100px solid transparent;
+            border-right: 150px solid #ff74b4; /* Bright pink for more contrast */
+            border-bottom: 100px solid #ff74b4; /* Bright pink */
+            border-left: 150px solid #ff5a8c; /* Darker pink for extra contrast */
+            z-index: 3;
+        }
+
+        .letter {
+            position: absolute;
+            top: 0;
+            width: 80%;
+            height: 100%;
+            background-color: white;
+            border-radius: 15px;
+            z-index: 2;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        /* Heart shape inside the letter */
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background-color: #ff84a2; /* Softer red-pink for heart */
+            clip-path: polygon(50% 0%, 100% 35%, 85% 100%, 50% 75%, 15% 100%, 0% 35%);
+            transform: translate(-50%, -50%) rotate(0deg);
+            transition: transform 1s ease-in-out;
+            z-index: 4;
+        }
+
+        .wrapper.open .lid.one {
+            transform: rotateX(90deg);
+            transition-delay: 0s;
+        }
+
+        .wrapper.open .lid.two {
+            transform: rotateX(180deg);
+            transition-delay: 0.25s;
+        }
+
+        .wrapper.open .letter {
+            transform: translateY(-100px);
+            opacity: 1;
+            transition-delay: 0.5s;
+        }
+
+        .wrapper.open .heart {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #333; /* Dark color for text */
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper" id="envelope">
+        <div class="envelope"></div>
+        <div class="lid lid one"></div>
+        <div class="lid lid two"></div>
+        <div class="letter">
+            <p class="text">To my dearest Hana Toh 💖, </p> <!-- Text inside the envelope -->
+        </div>
+        <div class="heart"></div> <!-- Heart shape inside the letter -->
+        <span>Click here</span> <!-- Click here text -->
+    </div>
+
+    <script>
+        // Add click event listener to trigger the envelope animation
+        document.querySelector('.wrapper').addEventListener('click', function() {
+            // Add 'open' class to trigger the animation
+            document.querySelector('.wrapper').classList.add('open');
+        });
+
+        // Listen for the letter animation end
+        document.querySelector('.letter').addEventListener('transitionend', function() {
+            // After the letter animation finishes, redirect to note.html.
+            setTimeout(function() {
+                window.location.href = "note.html"; // Redirect to the note.html page
+            }, 1200); // Wait for the letter to fully appear before redirecting
+        });
+    </script>
+
+</body>
+</html>
