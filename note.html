@@ -6,48 +6,60 @@
     <title>Note from Jeric</title>
     <style>
         body {
-            font-family: sans-serif;
-            background-color: #f1f1f1;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             text-align: center;
-            padding: 50px;
         }
 
         .note {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            width: 60%;
-            max-width: 600px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .note h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #3760C9;
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #ff5e78;
         }
 
         .note p {
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .note button {
-            background-color: #3760C9;
+            background: #ff5e78;
             color: white;
             font-size: 18px;
             padding: 12px 24px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 94, 120, 0.3);
         }
 
         .note button:hover {
-            background-color: #658ced;
+            background: #ff3b5f;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -55,10 +67,13 @@
 
     <div class="note">
         <h2>My Dearest Hana 💖</h2>
-        <p>You are the most special person in my life. Every moment with you is magical, and I cherish every smile, every laugh, and every memory we've made together. 💕</p>
-        <p>Thank you for being you. Will you always be my Valentine? 💖</p>
+        <p>Valentine’s Day is often celebrated on the 14th of February. Although this day is a time to show how much you love a person by spending money on gifts, it is also a day that some people don’t wish to come. But for me, I feel it is worth it no matter how much I spend on you this Valentine’s Day. And for me, I welcome the next Valentine’s Day in 2026 and the many more Valentine’s Days to come in the future.</p>
+        <p>I would love to spend this beautiful day with you, but I am afraid that because of school, I cannot. I hope that someday we can spend it together and have a romantic dinner or just stay by each other’s side.</p>
+        <p>Frankly speaking, you are the most special person in my life. Every moment with you is magical, and I cherish every smile, every laugh, and every memory we've made together.</p>
+        <p>Thank you for being you. I know you have your flaws, and so do I, but I will always accept them and support you all the way.</p>
+        <p>Will you always be my Valentine? 💖</p>
         <p>With love,<br>Jeric</p>
-        <button onclick="window.location.href='index.html'">Go Back</button>
+        <button onclick="window.location.href='index.html'">Back to the Big Question 💖</button>
     </div>
 
 </body>
