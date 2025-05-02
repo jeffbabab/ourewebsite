@@ -1,109 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journey Timeline</title>
     <style>
-        /* General Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
+
         body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            background-color: #faf7f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+
+
+        .header {
             text-align: center;
-            font-family: 'Poppins', sans-serif;
-            background-image: url('ourpicture.jpg'); /* Use your uploaded image */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            overflow: hidden;
+            margin-bottom: 60px;
         }
 
-        /* Dark overlay for readability */
-        body::before {
-            content: "";
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .memory {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .date {
+            width: 140px;
+            /* Increased width for longer dates */
+            text-align: right;
+            padding-right: 30px;
+            position: relative;
+            flex-shrink: 0;
+            /* Prevents date from shrinking */
+        }
+
+        .date h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            /* Slightly smaller font */
+            color: #ff758c;
+            margin: 0;
+            white-space: nowrap;
+            /* Prevents date from wrapping */
+        }
+
+        .date::after {
+            content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
+            right: -25px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff7eb3, #ff758c);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px #ff7eb3;
         }
 
-        /* Title */
-        .title {
-            font-size: 70px; /* Increased size for the title */
-            font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
-            padding: 15px;
+        .content {
+            flex: 1;
+            padding-left: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #ddd;
         }
 
-        /* Question Box */
-        .container {
-            margin-top: 150px; /* Adjusted for better spacing */
-            background: rgba(0, 0, 0, 0.5);
-            display: inline-block;
-            padding: 40px; /* Increased padding for better layout */
-            border-radius: 15px;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 80px;
+            }
 
-        .question {
-            font-size: 40px; /* Increased font size */
-            font-weight: bold;
-            margin-bottom: 30px; /* Added space below the question */
-        }
+            .memory {
+                flex-direction: column;
+            }
 
-        /* Buttons */
-        .buttons {
-            margin-top: 30px;
-        }
+            .date {
+                width: auto;
+                text-align: left;
+                padding-right: 0;
+                padding-left: 60px;
+                margin-bottom: 15px;
+            }
 
-        .btn {
-            padding: 20px 40px; /* Increased padding for larger buttons */
-            font-size: 30px; /* Increased font size */
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: 0.3s;
-            margin: 10px; /* Added margin between buttons */
-        }
+            .date::after {
+                left: 30px;
+                right: auto;
+            }
 
-        .yes {
-            background-color: #ff4d4d;
-            color: white;
-            box-shadow: 0px 5px 10px rgba(255, 77, 77, 0.7);
+            .content {
+                padding-left: 60px;
+            }
         }
-
-        .yes:hover {
-            background-color: #ff1a1a;
-        }
-
-        .no {
-            background-color: #808080;
-            color: white;
-            position: absolute;
-        }
-
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <p class="question">Will you be my Valentine? 💘</p>
-        <div class="buttons">
-            <button class="btn yes" onclick="goToLetterPage()">Yes</button>
-            <button class="btn no" onmouseover="moveNoButton()">No</button>
+    <div class="timeline-container">
+        <div class="header">
+            <h1>Our Journey Together</h1>
+            <p>Every moment with you becomes my favorite memory</p>
         </div>
-    </div>
 
-    <script>
-        function goToLetterPage() {
-            window.location.href = "letter.html"; // Redirects to the second page
-        }
+        <div class="memory">
+            <div class="date">
+                <h2>11 August 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"First Time we Met "</h3>
+                <p class="memory-text">
+                    I remebered this day so clearly at. on 11th August at 10pm I send you a Zalo text asking you whether
+                    you wanted to join me and my friends at the club. However i don't have any pictures of you there
+                    because you were shy and didnt want to take any pictures. I remebered you taking care of me at
+                    District K, putting a plaster on my wound and protecting me and my friends from the people at the
+                    club.
+                </p>
+                <div class="image-placeholder">
+                    <div
+                        style="background: #eee; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                        <img src="first.jpg" class="memory-image"
+                            style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        function moveNoButton() {
-            const noButton = document.querySelector('.no');
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            noButton.style.left = `${x}px`;
-            noButton.style.top = `${y}px`;
-        }
-    </script>
+
+        <div class="memory">
+            <div class="date">
+                <h2>12 August 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"The Special Morning"</h3>
+                <p class="memory-text">
+                    I briefly mentioned here that I think you would look good if you would wear my T-Shirt and take a
+                    photo. I did not realize that you actually went and took a photo till 3 days later when you decided
+                    to
+                    send it to me. I love this photo and I love you for noticing the small details that I said 😊
+                </p>
+
+                <div class="image-placeholder">
+                    <div style="background: #eee; height: 500px; border-radius: 8px; overflow: hidden;">
+                        <img src="fifth.JPG" class="memory-image" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="memory">
+            <div class="date">
+                <h2>18 August 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"The Big Question"</h3>
+                <p class="memory-text">
+                    This was the photos leading up to the day i popped the big question. "Would you be my GirlFriend".
+                    As i am making this i still cannot believe you said yes and we have our amazing times ahead. We are
+                    still uncertain when i offically asked you to become my girlfriend so ye we will treat the 18th of
+                    August as our special day forever. Just look at that big smile of yours
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="thirdpic.JPG" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="fourth.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="date">
+                <h2>7 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"Fast Forward 5 Months"</h3>
+                <p class="memory-text">
+                    We finally meet again. Time passed so quickly i finally found you at the airport gave you a quick
+                    kiss and we made our way back to the hotel. There we went for food near the hotel i think it was
+                    boat noodles. Afterwards we went to china town and seems like you got sick
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="six.jpg" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="7.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="date">
+                <h2>8 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"Skull Panda here we come"</h3>
+                <p class="memory-text">
+                    I remember this day where we tried to buy the Skull Panda from the people selling outside the
+                    shopping mall. They told us we could go to emsphere the next day for the skull panda event and buy
+                    what you wanted
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="8.jpg" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="9.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="10.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="date">
+                <h2>9 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"We tried to be James Bond "</h3>
+                <p class="memory-text">
+                    We went into an army base today. I remembered you scolded me that we wasted money on this shooting
+                    experience. But when i saw how much fun you were having i think that my purchase was well worth it
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="11.jpg" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="13.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="memory">
+            <div class="date">
+                <h2>9 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"First Date Night"</h3>
+                <p class="memory-text">
+                    This was a very hectic day. I remebered i had to run around to the different malls nearby to try to
+                    get my belt adjusted. While you were spending alot of time looking the best you can for me. We had
+                    to even push the back the reservation for the dinner hehe
+
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="15.JPG" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="14.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="date">
+                <h2>10 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"Last Day in Bangkok"</h3>
+                <p class="memory-text">
+                    We had fun during our time in Bangkok made alot of memories. But this day was special we took a
+                    couple like photo of you holding my hand and the other way around. You even made a tiktok of me but
+                    am sorry i didnt post you on my social media
+
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="16.JPG" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="17.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="18.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="date">
+                <h2>10 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"First Day in Ho Chi Minh"</h3>
+                <p class="memory-text">
+                    I booked a hotel on this night. We had our first fight i cried and you comforted me. Than you
+                    proceeded to leave ur handphone back in the apartment and we had to go back to find it. It was a fun
+                    and interesting night.
+
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="19.JPG" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="date">
+                <h2>13 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"First Time Cooking for you "</h3>
+                <p class="memory-text">
+                    I cooked steak for you for the first time. We ordered pizza as well that was how you got the
+                    nickname Pepperoni. But ye you complained that i made the place dirty and banned me from cooking
+
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="firstcooking.jpg" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="memory">
+            <div class="date">
+                <h2>15 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"First Time Doing Charity Together "</h3>
+                <p class="memory-text">
+
+                    We had planned to give out food at the hospital. We went with my friend, I remembered that the first
+                    hospital denied us entry and the subsequent one the people were so rude and rowdy. However doing it
+                    with you made it feel speical and something i will always remember
+
+
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="20.JPG" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="21.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="date">
+                <h2>16 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"First Time Facial "</h3>
+                <p class="memory-text">
+
+                    You helped me do my skinscare today because i was so lazy haha. You helped me put a mask, toner and
+                    the best part is that i was on ur legs hehe
+
+
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="facial.JPG" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="memory">
+            <div class="date">
+                <h2>17 December 2024</h2>
+            </div>
+            <div class="content">
+                <h3 class="memory-title">"First Movie Night "</h3>
+                <p class="memory-text">
+
+                    We had dinner i think we wanted to eat bbq but the place was fully booked. We ended up watching
+                    a movie that night i think it was Kraven, it was a pretty bad movie but having you by my side
+                    made it so much better
+
+
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="22.JPG" alt="Memory photo 1" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                        <img src="23.JPG" alt="Memory photo 2" class="memory-image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="memory">
+                <div class="date">
+                    <h2>18 December 2024</h2>
+                </div>
+                <div class="content">
+                    <h3 class="memory-title">"First Anniversary in Person "</h3>
+                    <p class="memory-text">
+                        This day was so hectic. I ran around the entire city finding balloons, doing my hair, getting
+                        our photos printed, Hiding the crybaby from you, collecting this big flowers. The day was
+                        perfect i decorated the room for the person I love we had dinner at a nice japanese restaurant,
+                        We had a great time
+
+
+                    </p>
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                            <img src="24.JPG" alt="Memory photo 1" class="memory-image"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                            <img src="25.JPG" alt="Memory photo 2" class="memory-image"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+
+                        </div>
+                        <div style="flex: 1; background: #eee; height: 300px; border-radius: 8px; overflow: hidden;">
+                            <img src="26.JPG" alt="Memory photo 2" class="memory-image"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+
+                        </div>
+                    </div>
+                </div>
+
 </body>
+
 </html>
